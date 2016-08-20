@@ -9,9 +9,17 @@ setup(name="chefpy",
       license="MIT",
       packages=["chefpy"],
       scripts=["./bin/Xchefpy"],
+      classifiers=[
+        'Development Status :: 0.314 - Beta',
+        'License :: OSI Approved :: MIT License',
+        'Programming Language :: Python :: 2.7',
+        
+      ],
+      keywords='api codechef automation command-line linux web-scraping',
       install_requires=[
           "bs4",
           "requests",
+          "urllib2",
       ],
       zip_safe=False)
 
