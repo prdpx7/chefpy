@@ -1,5 +1,5 @@
 # chefpy
-#### Unoffficial Codechef API Wrapper
+#### Unofficial Codechef API Wrapper
 ## Installation
   ```
   pip install chefpy
