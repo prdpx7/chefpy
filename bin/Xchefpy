@@ -1,0 +1,52 @@
+#!/usr/bin/env python
+
+from chefpy import Chefpy
+import argparse
+import os
+
+def save_src(src_code, filename, extension):
+    filename = filename+extension
+    if not os.path.exists("./"+filename):
+        f = open(filename,"w")
+        f.write(src_code)
+        print "Saved  as",filename,"..!"
+        f.close()
+def main(args):
+    user = Chefpy(args.user)
+
+    if args.status:
+        user.get_stat()
+    elif args.download:
+        pcode = args.download
+        code_obj = user.get_solution(pcode)
+        save_src(code_obj["text"],pcode,code_obj["format"])
+
+    elif args.download_all:
+        for pcode in user.content["problems"].keys():
+            print "GET:",pcode,"......."
+            code_obj = user.get_solution(pcode)
+            save_src(code_obj["text"],pcode,code_obj["format"])
+
+
+    else:
+        print "Link:",user.host+"/users/"+user.content["user"]
+        print "Name:",user.content["username"]
+        print "Rankings:"
+        for contest in sorted(user.content["rank"]):
+            print contest," : ",user.content["rank"]["contest"]
+
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description = "Making Backup for Codechef soultions")
+    parser.add_argument("--user",type=str,help="Display general info")
+    parser.add_argument("--status",action="store_true",help="Get User Full Status eg: \nXchefpy --user USERNAME --status")
+    parser.add_argument("--download",type=str,help="Download solution for problemCode eg: \nXchefpy --user USERNAME --download 'PROBLEMCODE' ")
+    parser.add_argument("--download-all",action="store_true",help="Download all solutions eg: \nXchefpy --user USERNAME --download-all")
+    args = parser.parse_args()
+    if not args.user:
+        print "Must specify --user"
+    else:
+        main(args)
+
+
