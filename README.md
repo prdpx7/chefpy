@@ -20,9 +20,11 @@
   LongContest : 2347/1735
   ..........
   ```
-  # Xchefpy
-  #### Python Script to download  User's Solution using *chefpy*
-  ## Usage
+  
+# Xchefpy
+  
+#### Python Script to download  User's Solution using *chefpy*
+## Usage
   ```
   $ Xchefpy --help
   usage: Xchefpy [-h] [--user USER] [--status] [--download DOWNLOAD]
