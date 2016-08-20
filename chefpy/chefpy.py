@@ -55,7 +55,7 @@ class Chefpy(object):
                                 }
         
         """
-        content["problems"] = {"TEST":"https://www.codechef.com/problems/TEST",
+        content["problems"] = {"TEST":"https://www.codechef.com/[ContestName]/status/TEST,[USERNAME]",
                                 ...
                             }
             
