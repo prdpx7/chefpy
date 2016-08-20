@@ -4,10 +4,25 @@ import json
 import sys
 import re
 import requests
-
+import urllib2
+import time
 def get_soup(url):
-    return BeautifulSoup(requests.get(url).content,"html.parser")
+    retry = 2
+    html_src = None
+    while retry >= 0:
+        try:
+            html_src = urllib2.urlopen(url).read()
+            break
+        except:
+            print "Connection TimedOut ....Connecting again",url
+            retry -= 1
+    if html_src:
+        return BeautifulSoup(html_src,"html.parser")
+    else:
+        print "Connection Failed"
+        sys.exit(1)
 
+    
 class Chefpy(object):
     host = "https://www.codechef.com"
     LANG = {"C":[".c","//link: "],
@@ -28,6 +43,7 @@ class Chefpy(object):
         soup = get_soup(url)
         self.content["user"] = self.user 
         self.content["rank"] = {}
+        self.content["username"] = soup.select("div.user-name-box")[0].text
         stat = soup.select("table .rating-table td hx")
 
         """
@@ -75,10 +91,11 @@ class Chefpy(object):
         print "Contest : Global/Country Rank"
         for contest in sorted(self.content["rank"].keys()):
             print contest +" : "+self.content["rank"][contest]
+        
         stat_soup = get_soup(self.host + "/users/" + self.content["user"]).select("table #problem_stats tr td")
 
         for i in xrange(len(stat_soup)/2):
-            print stat_soup[i].text + ":" + stat_soup[9+i].text
+            print stat_soup[i].text + " : " + stat_soup[9+i].text 
 
 
 
