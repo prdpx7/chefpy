@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(name="chefpy",
-      version="0.314",
+      version="0.315",
       description="Unofficial Codechef Api for user's status,rank,solutions etc.",
       url="http://github.com/zuck007/chefpy",
       author="Pradeep Khileri",
