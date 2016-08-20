@@ -13,7 +13,6 @@ setup(name="chefpy",
       install_requires=[
           "bs4",
           "requests",
-          "urllib2",
       ],
       zip_safe=False)
 
