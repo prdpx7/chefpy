@@ -1,5 +1,5 @@
 # chefpy
-#### Unofficial Codechef API Wrapper
+#### Unofficial Codechef API
 ## Installation
   ```
   pip install chefpy
@@ -46,5 +46,5 @@
   $ ls -l
   .  ..  WOUT.cpp
   ```
-  * Here is snap of my full Backup of all ACed Solution from [CodeChef](https://www.codechef.com/users/zuck_007)
+  * Here is snap of my full Backup of all ACed Solution from [CodeChef](https://www.codechef.com/users/zuck_007) using this API
   ![snap](http://i.imgur.com/ACpkMfz.png)
