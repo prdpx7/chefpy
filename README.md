@@ -1,5 +1,5 @@
 # chefpy
-#### Unoffficial Codechef API Wrapper
+#### Unofficial Codechef API Wrapper
 ## Installation
   ```
   pip install chefpy
@@ -20,9 +20,11 @@
   LongContest : 2347/1735
   ..........
   ```
-  # Xchefpy
-  #### Python Script to download  User's Solution using *chefpy*
-  ## Usage
+  
+# Xchefpy
+  
+#### Python Script to download  User's Solution using *chefpy*
+## Usage
   ```
   $ Xchefpy --help
   usage: Xchefpy [-h] [--user USER] [--status] [--download DOWNLOAD]
@@ -44,5 +46,5 @@
   $ ls -l
   .  ..  WOUT.cpp
   ```
-  * Here is snap of my full Backup of all ACed Solution from CodeChef
+  * Here is snap of my full Backup of all ACed Solution from [CodeChef](https://www.codechef.com/users/zuck_007)
   ![snap](http://i.imgur.com/ACpkMfz.png)
