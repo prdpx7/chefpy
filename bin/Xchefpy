@@ -33,7 +33,7 @@ def main(args):
         print "Name:",user.content["username"]
         print "Rankings:"
         for contest in sorted(user.content["rank"]):
-            print contest," : ",user.content["rank"]["contest"]
+            print contest," : ",user.content["rank"][contest]
 
 
 
