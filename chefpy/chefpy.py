@@ -29,7 +29,9 @@ class Chefpy(object):
             "C++":[".cpp","//link: "],
             "PYTH":[".py","#link: "],
             "JAVA":[".java","//link: "],
-            "C99 strict":[".c","//link: "]
+            "C99":[".c","//link: "],
+            "C++11":[".cpp","//link: "],
+            "C++14":[".cpp","//link: "],
             }
 
     content = {}
