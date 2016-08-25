@@ -20,10 +20,12 @@
   LongContest : 2347/1735
   ..........
   ```
-  
+#### Demo
+[![asciicast](https://asciinema.org/a/83814.png)](https://asciinema.org/a/83814)
+
 # Xchefpy
-  
-#### Python Script to download  User's Solution using *chefpy*
+
+#### Sample Python Script using *chefpy*
 ## Usage
   ```
   $ Xchefpy --help
@@ -46,5 +48,5 @@
   $ ls -l
   .  ..  WOUT.cpp
   ```
-  * Here is snap of my full Backup of all ACed Solution from [CodeChef](https://www.codechef.com/users/zuck_007) using this API
-  ![snap](http://i.imgur.com/ACpkMfz.png)
+#### Demo
+[![asciicast](https://asciinema.org/a/83816.png)](https://asciinema.org/a/83816)
