@@ -34,14 +34,15 @@ class Chefpy(object):
             "C++14":[".cpp","//link: "],
             }
 
-    content = {}
+    
 
     def __init__(self, user):
         self.user = user
+        self.content = {}
         url = self.host + "/users/" + self.user
         if requests.get(url, allow_redirects=False).status_code != 200:
             print "user_name does not exist"
-            sys.exit(1)
+            return None
         soup = get_soup(url)
         self.content["user"] = self.user 
         self.content["rank"] = {}
