@@ -1,6 +1,7 @@
 # chefpy
 #### Unofficial Codechef API
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/zuck007/chefpy/master/LICENSE)
+[![PyPI version](https://badge.fury.io/py/chefpy.svg)](https://badge.fury.io/py/chefpy)
 ## Installation
   ```
   pip install chefpy

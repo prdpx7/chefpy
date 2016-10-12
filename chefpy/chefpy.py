@@ -1,11 +1,9 @@
 from __future__ import absolute_import, unicode_literals
 from bs4 import BeautifulSoup
-import json
 import sys
 import re
 import requests
 import urllib2
-import time
 def get_soup(url):
     retry = 2
     html_src = None
@@ -13,7 +11,7 @@ def get_soup(url):
         try:
             html_src = urllib2.urlopen(url).read()
             break
-        except:
+        except Exception as timeout:
             print "Connection TimedOut ....Connecting again",url
             retry -= 1
     if html_src:
@@ -109,7 +107,7 @@ class Chefpy(object):
                             }
         """
 
-        if not self.content["problems"].has_key(problem_code):
+        if not problem_code in self.content["problems"]:
             print "provide problem code only for those problems which is solved by",self.user
             sys.exit(1)
             
