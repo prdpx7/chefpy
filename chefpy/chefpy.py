@@ -12,7 +12,8 @@ def get_soup(url):
             html_src = urllib2.urlopen(url).read()
             break
         except Exception as timeout:
-            print "Connection TimedOut ....Connecting again",url
+            print timeout
+            print "......Connecting again......",url
             retry -= 1
     if html_src:
         return BeautifulSoup(html_src,"html.parser")
@@ -107,7 +108,7 @@ class Chefpy(object):
                             }
         """
 
-        if not problem_code in self.content["problems"]:
+        if problem_code not in self.content["problems"]:
             print "provide problem code only for those problems which is solved by",self.user
             sys.exit(1)
             
