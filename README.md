@@ -2,12 +2,37 @@
 #### Unofficial Codechef API
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/zuck007/chefpy/master/LICENSE)
 [![PyPI version](https://badge.fury.io/py/chefpy.svg)](https://badge.fury.io/py/chefpy)
-[![Code Health](https://landscape.io/github/zuck007/chefpy/master/landscape.svg?style=flat)](https://landscape.io/github/zuck007/chefpy/master)
 ## Installation
   ```
   pip install chefpy
   ```
-## Usage
+  ## Usage
+
+  ```
+  $ chefpy --help
+  usage: chefpy [-h] [--user USER] [--status] [--download DOWNLOAD] [--download-all]
+
+  Making Backup for Codechef soultions
+
+  optional arguments:
+    -h, --help           show this help message and exit
+    --user USER          Display general info
+    --status             Get User Full Status eg:
+                         chefpy --user USERNAME --status
+    --download DOWNLOAD  Download solution for problemCode eg:
+                         chefpy --user USERNAME --download 'PROBLEMCODE'
+    --download-all       Download all solutions eg:
+                          chefpy --user USERNAME --download-all
+$ cd /tmp
+$ chefpy --user "zuck__007" --download "WOUT"
+$ ls -l
+.  ..  WOUT.cpp
+```
+  #### Demo
+  ~~Xchepy~~ -> chefpy
+  [![asciicast](https://asciinema.org/a/83816.png)](https://asciinema.org/a/83816)
+
+#### Usage as a python package
   ```
   $ python
   >>> from chefpy import Chefpy
@@ -24,32 +49,4 @@
   ..........
   ```
 #### Demo
-[![asciicast](https://asciinema.org/a/83814.png)](https://asciinema.org/a/83814)
-
-# Xchefpy
-
-#### Sample Python Script using *chefpy*
-## Usage
-  ```
-  $ Xchefpy --help
-  usage: Xchefpy [-h] [--user USER] [--status] [--download DOWNLOAD]
-               [--download-all]
-
-  Making Backup for Codechef soultions
-
-  optional arguments:
-   -h, --help           show this help message and exit
-   --user USER          Display general info
-   --status             Get User Full Status eg:
-              Xchefpy --user USERNAME --status
-   --download DOWNLOAD  Download solution for problemCode eg:
-              Xchefpy --user USERNAME --download 'PROBLEMCODE'
-   --download-all       Download all solutions eg:
-              Xchefpy --user USERNAME --download-all
-  $ cd /tmp
-  $ Xchefpy --user "zuck__007" --download "WOUT"
-  $ ls -l
-  .  ..  WOUT.cpp
-  ```
-#### Demo
-[![asciicast](https://asciinema.org/a/83816.png)](https://asciinema.org/a/83816)
+  [![asciicast](https://asciinema.org/a/83814.png)](https://asciinema.org/a/83814)
