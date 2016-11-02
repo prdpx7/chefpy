@@ -3,7 +3,7 @@
 from chefpy import Chefpy
 import argparse
 import os
-
+import sys
 def save_src(src_code, filename, extension):
     filename = filename+extension
     if not os.path.exists("./"+filename):
@@ -12,7 +12,12 @@ def save_src(src_code, filename, extension):
         print "Saved  as",filename,"..!"
         f.close()
 def main(args):
-    user = Chefpy(args.user)
+    try:
+        user = Chefpy(args.user)
+    except Exception as usernotexist:
+        print "invalid username or some other shit went wrong"
+        print usernotexist
+        sys.exit(1)
 
     if args.status:
         user.get_stat()

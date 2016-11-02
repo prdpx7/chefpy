@@ -8,7 +8,7 @@ setup(name="chefpy",
       author_email="pradeepchoudhary009@gmail.com",
       license="MIT",
       packages=["chefpy"],
-      scripts=["./bin/Xchefpy"],
+      scripts=["./bin/chefpy"],
       keywords='api codechef automation command-line linux web-scraping',
       install_requires=[
           "bs4",
