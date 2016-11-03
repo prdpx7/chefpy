@@ -3,10 +3,7 @@
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/zuck007/chefpy/master/LICENSE)
 [![PyPI version](https://badge.fury.io/py/chefpy.svg)](https://badge.fury.io/py/chefpy)
 [![Code Health](https://landscape.io/github/zuck007/chefpy/master/landscape.svg?style=flat)](https://landscape.io/github/zuck007/chefpy/master)
-<<<<<<< HEAD
 
-=======
->>>>>>> 2e56ccf5ca45c20aff79bf3bd6f99d9e5a31854b
 ## Installation
   ```
   pip install chefpy
