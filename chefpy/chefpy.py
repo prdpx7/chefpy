@@ -36,43 +36,50 @@ class Chefpy(object):
     
 
     def __init__(self, user):
-        self.user = user
-        self.content = {}
-        url = self.host + "/users/" + self.user
+        self.user = {}
+        url = self.host + "/users/" + user
         if requests.get(url, allow_redirects=False).status_code != 200:
-            print "user_name does not exist"
-            return None
+            self.status_code = 404
+            self.status = 'user not exist'
+            return 
+        self.status_code = 200    
         soup = get_soup(url)
-        self.content["user"] = self.user 
-        self.content["rank"] = {}
-        self.content["username"] = soup.select("div.user-name-box")[0].text
+        self.user["user"] = user
+        self.user["rank"] = {}
+        self.user["username"] = soup.select("div.user-name-box")[0].text
         stat = soup.select("table .rating-table td hx")
 
         """
-        content["rank"] = {"ContestName":"GlobalRank/CountryRank"}
+        user["rank"] = {"ContestName":"GlobalRank/CountryRank"}
         """
-        self.content["rank"] = {"LongContest":stat[0].text+"/"+stat[1].text,
+        self.user["rank"] = {"LongContest":stat[0].text+"/"+stat[1].text,
                                 "ShortContest":stat[2].text+"/"+stat[3].text,
                                 "LunchTime":stat[4].text+"/"+stat[5].text
                                 }
         
         """
-        content["problems"] = {"TEST":"https://www.codechef.com/[ContestName]/status/TEST,[USERNAME]",
+        user["problems"] = {"TEST":"https://www.codechef.com/[ContestName]/status/TEST,[USERNAME]",
                                 ...
                             }
             
         """
-        self.content["problems"] = {}
+        self.user["problems"] = {}
         for link in soup.select("span a"):
             if self.is_valid(link["href"]):
-                problem_code = re.findall(r"/?(\w+)?/status/(\w+),%s"%(self.user),link["href"])[0][1]
-                self.content["problems"][problem_code] = self.host + link["href"]
+                problem_code = re.findall(r"/?(\w+)?/status/(\w+),%s"%(self.user["user"]),link["href"])[0][1]
+                self.user["problems"][problem_code] = self.host + link["href"]
         
-    
+        self.user["status"] = {}
+        stat_soup = get_soup(self.host + "/users/" + self.user["user"]).select("table #problem_stats tr td")
+
+        for i in xrange(len(stat_soup)/2):
+             self.user["status"][stat_soup[i].text] = stat_soup[9+i].text 
+
+
 
     def is_valid(self, solution_url):
         "check for solution url among all hrefs from user page"
-        if re.match(r"/?(\w+)?/status/(\w+),%s"%(self.user),solution_url):
+        if re.match(r"/?(\w+)?/status/(\w+),%s"%(self.user["user"]),solution_url):
             return True
         return False
     
@@ -89,17 +96,16 @@ class Chefpy(object):
         ..._
 
         """
-        print "User  : "+self.content["user"]
+        print "Name  : "+self.user["username"]
         print "Contest : Global/Country Rank"
-        for contest in sorted(self.content["rank"].keys()):
-            print contest +" : "+self.content["rank"][contest]
+        for contest in sorted(self.user["rank"].keys()):
+            print contest +" : "+self.user["rank"][contest]
+
+        for key,val in self.user["status"].iteritems():
+            print key + " : " + val
+
+
         
-        stat_soup = get_soup(self.host + "/users/" + self.content["user"]).select("table #problem_stats tr td")
-
-        for i in xrange(len(stat_soup)/2):
-            print stat_soup[i].text + " : " + stat_soup[9+i].text 
-
-
 
     def get_solution(self, problem_code, display=False):
         """Return source code object
@@ -108,11 +114,11 @@ class Chefpy(object):
                             }
         """
 
-        if problem_code not in self.content["problems"]:
+        if problem_code not in self.user["problems"]:
             print "provide problem code only for those problems which is solved by",self.user
             sys.exit(1)
             
-        soup = get_soup(self.content["problems"][problem_code]+"?sort_by=Time&status=15")
+        soup = get_soup(self.user["problems"][problem_code]+"?sort_by=Time&status=15")
         code_lang = soup.select("tr td .centered")[3].text.split(" ")[0]
         code_id = soup.select('tbody tr td')[0].text
         src_code_url = soup.select("tr td ul li a")[0]["href"]

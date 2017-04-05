@@ -34,11 +34,11 @@ def main(args):
 
 
     else:
-        print "Link:",user.host+"/users/"+user.content["user"]
-        print "Name:",user.content["username"]
+        print "Link:",user.host+"/users/"+user.user["user"]
+        print "Name:",user.user["username"]
         print "Rankings:"
-        for contest in sorted(user.content["rank"]):
-            print contest," : ",user.content["rank"][contest]
+        for contest in sorted(user.user["rank"]):
+            print contest," : ",user.user["rank"][contest]
 
 
 
