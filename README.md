@@ -9,7 +9,7 @@
   ```
   pip install chefpy
   ```
-  ## Usage
+## Usage
 
   ```
   $ chefpy --help
@@ -26,13 +26,13 @@
                          chefpy --user USERNAME --download 'PROBLEMCODE'
     --download-all       Download all solutions eg:
                           chefpy --user USERNAME --download-all
-$ cd /tmp
-$ chefpy --user "zuck__007" --download "WOUT"
-$ ls -l
-.  ..  WOUT.cpp
-```
-  #### Demo
-  ~~Xchepy~~ -> chefpy
+  $ cd /tmp
+  $ chefpy --user "zuck__007" --download "WOUT"
+  $ ls -l
+  .  ..  WOUT.cpp
+  ```
+#### Demo
+~~Xchepy~~ -> chefpy
   [![asciicast](https://asciinema.org/a/83816.png)](https://asciinema.org/a/83816)
 
 #### Usage as a python package
