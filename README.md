@@ -1,8 +1,9 @@
 # chefpy
+#### Site HTML changed, Won't work now
 #### Unofficial Codechef API
-[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/zuck007/chefpy/master/LICENSE)
+[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/prdpx7/chefpy/master/LICENSE)
 [![PyPI version](https://badge.fury.io/py/chefpy.svg)](https://badge.fury.io/py/chefpy)
-[![Code Health](https://landscape.io/github/zuck007/chefpy/master/landscape.svg?style=flat)](https://landscape.io/github/zuck007/chefpy/master)
+[![Code Health](https://landscape.io/github/prdpx7/chefpy/master/landscape.svg?style=flat)](https://landscape.io/github/prdpx7/chefpy/master)
 
 ## Installation
   ```

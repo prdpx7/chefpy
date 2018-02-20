@@ -3,7 +3,7 @@ from setuptools import setup
 setup(name="chefpy",
       version="0.321",
       description="Unofficial Codechef Api for user's status,rank,solutions etc.",
-      url="http://github.com/zuck007/chefpy",
+      url="http://github.com/prdpx7/chefpy",
       author="Pradeep Khileri",
       author_email="pradeepchoudhary009@gmail.com",
       license="MIT",
